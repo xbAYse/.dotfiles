@@ -268,6 +268,7 @@ boot.loader = {
     glib
     python3Full
     github-desktop
+    fortune
     ];
 
 
@@ -291,7 +292,6 @@ boot.loader = {
      STEAM_EXTRA_COMPAT_TOOLS_PATHS =
       "/home/user/.steam/root/compatibilitytools.d";
   };
-
   # Hyprland Session Variable
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";

@@ -1,0 +1,13 @@
+
+
+//@theme "/nix/store/mcbwsc6hcd5g7fcqzklxwf5m7bn5bk6a-rofi-1.7.5+wayland3/share/rofi/themes/gruvbox-dark-soft.rasi"
+
+//@theme "/home/bayse/.local/share/rofi/themes/spotlight-dark.rasi"
+
+//@theme "/home/bayse/.local/share/rofi/themes/launchpad.rasi"
+
+//@theme "/home/bayse/.local/share/rofi/themes/spotlight-dark.rasi"
+
+//@theme "/home/bayse/.local/share/rofi/themes/windows11-grid-dark.rasi"
+
+@theme "~/.config/rofi/gruvbox-material.rasi"
