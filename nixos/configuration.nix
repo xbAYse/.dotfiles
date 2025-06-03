@@ -122,6 +122,8 @@ boot.loader = {
   };
   services.gnome.core-apps.enable = false;
 
+  # Enable Niri
+  programs.niri.enable = true;
   # Enable the Hyprland Compositor
   programs.hyprland.enable = true;
   programs.hyprland.xwayland.enable = true;
@@ -210,7 +212,7 @@ boot.loader = {
     waybar
     dunst #notifications
     libnotify #notifications
-    hyprpaper
+    swww
     ghostty
     fish
     vesktop
@@ -269,6 +271,7 @@ boot.loader = {
     python3Full
     github-desktop
     fortune
+    xwayland-satellite
     ];
 
 
