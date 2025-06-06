@@ -40,8 +40,8 @@ input {
     mouse {
         // off
         // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
+        accel-speed 0.15
+        accel-profile "flat"
         // scroll-method "no-scroll"
     }
 
@@ -92,7 +92,7 @@ output "HDMI-A-1" {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 16
+    gaps 7
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -246,12 +246,22 @@ spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "sww" "img" "~/Downloads/GruvBox/mountaingruvblur.png"
 
+// xwayland-satellite
+spawn-at-startup "xwayland-satellite"
+// Or, if you built it by hand:
+// spawn-at-startup "~/path/to/code/target/release/xwayland-satellite"
+
+environment {
+    DISPLAY ":0"
+}
+
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
 // This option will also fix border/focus ring drawing behind some semitransparent windows.
 // After enabling or disabling this, you need to restart the apps for this to take effect.
-// prefer-no-csd
+prefer-no-csd
+
 
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
@@ -330,7 +340,9 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+grave repeat=false { spawn "ghostty"; }
     Mod+P repeat=false { spawn "waypaper";}
-    Mod+R repeat=false { spawn "rofi" "-show" "drun";}
+    Mod+R repeat=false { spawn "rofi" "-show" "drun" "-show-icons";}
+    Mod+B repeat=false { spawn "flatpak" "run" "app.zen_browser.zen";}
+    Mod+S repeat=false { spawn "ghostty" "-e" "spotify_player";}
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
