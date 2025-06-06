@@ -272,6 +272,7 @@ boot.loader = {
     github-desktop
     fortune
     xwayland-satellite
+    gpu-screen-recorder-gtk
     ];
 
 
@@ -288,6 +289,8 @@ boot.loader = {
     jetbrains-mono
     font-awesome
     inconsolata
+    wqy_microhei
+    noto-fonts-cjk-sans
   ];
 
   # ProtonUp Session Variable

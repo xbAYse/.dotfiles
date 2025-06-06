@@ -138,7 +138,12 @@ tooltip {
     border-right-style: solid;
     border-right-color: @color_orange;
 }
-
+#window {
+  font-size : 10px;
+  background-color: @background;
+  padding-left: 1em;
+  padding-top: 2px;
+}
 
 
 /*--------------------------------------------------------------------------------
