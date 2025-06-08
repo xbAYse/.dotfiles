@@ -48,15 +48,16 @@
     font-family: "JetBrainsMono Nerd Font";
 }
 #waybar {
-    box-shadow: 10px 10px 10px 10px #000000;
+    box-shadow: 13px 13px 13px 13px #000000;
+    border-radius: 0px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: @hard_background;
 }
 window#waybar {
-    box-shadow: 10px 10px 10px 10px #000000;
+    box-shadow: 13px 13px 13px 13px #000000;
     background-color: @background;
     color: @foreground;
-    border-top: 2px solid;
-    border-bottom: 2px solid;
-    border-color: @hard_background;
 }
 
 tooltip {
@@ -76,25 +77,14 @@ tooltip {
  *-------------------------------------------------------------------------------*/
 
 .modules-right {
-    font-size: 9.8px;
-    border-top: 2px solid;
-    border-right: 2px solid;
-    border-bottom: 2px solid;
-    border-color: @hard_background;
+    font-size: 15px;
 }
 
 .modules-center {
-    border-top: 2px solid;
-    border-bottom: 2px solid;
-    border-color: @hard_background;
 }
 
 .modules-left {
     background-color: @background;
-    border-top: 2px solid;
-    border-left: 2px solid;
-    border-bottom: 2px solid;
-    border-color: @hard_background;
 }
 
 
@@ -106,13 +96,19 @@ tooltip {
 #workspaces {
     background-color: @background;
     color: @foreground;
-    padding-left: 1em;
     font-size: 9px;
+    border-right-width: 2px;
+    border-right-style: solid;
+    border-right-color: @hard_background;
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-left-color: @hard_background;
 }
 #workspaces button {
     color: @foreground;
     padding: 0 6px;
     font-size: 9px;
+
 }
 #workspaces button:hover {
     background-color: @color_aqua;
@@ -129,20 +125,24 @@ tooltip {
 }
 
 #clock {
-    font-size: 10px;
+    font-size: 15px;
     background-color: @background;
-    padding-right: 1em; 
-    padding-top: 3px; 
-    padding-left: 1em;
-    border-right: 3px;
+    padding-top: 1em;
+    border-right-width: 2px;
     border-right-style: solid;
-    border-right-color: @color_orange;
+    border-right-color: @selection_background;
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-left-color: @selection_background;
+    border-top-width: 3px;
+    border-top-style: solid;
+    border-top-color: @selection_background;
+
 }
 #window {
-  font-size : 10px;
-  background-color: @background;
-  padding-left: 1em;
-  padding-top: 2px;
+    font-size : 10px;
+    background-color: @background;
+    padding-top: 2px;
 }
 
 
@@ -150,39 +150,31 @@ tooltip {
  *    Right Modules 
  *-------------------------------------------------------------------------------*/
 
-#battery {
-    color: @foreground;
-    padding-left: 0.5em;
-    padding-right: 1.5em;
-}
-#battery.charging, #battery.plugged {
-    color: @foreground;
-}
 
 #memory {
     color: @color_aqua;
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px;
+    border-style: solid;
+    border-color: @hard_background;
 }
 
 #cpu {
     color: @color_green;
-    padding-right: 1em;
-    padding-left: 1.5em;
-    border-left: 3px;
-    border-left-style: solid;
-    border-left-color: @color_orange;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-top: 0px
 }
 #custom-drive{
     color: @color_yellow;
-    padding-right: 2em;
-    padding-left: 0em;
-    border-right: 6px;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 #network {
     color: @color_blue;
-    padding-right: 2em;
-    padding-left: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 #bluetooth{
@@ -192,8 +184,8 @@ tooltip {
 
 #wireplumber{
     color: @color_purple;
-    padding-right: 1em;
-    padding-left: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 #custom-spotify {
@@ -201,5 +193,4 @@ tooltip {
     padding-left: 1em;
     border-right: 3px;
     border-right-style: solid;
-    border-right-color: @color_blue;
 }

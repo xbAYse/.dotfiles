@@ -1,13 +1,8 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, inputs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    [      ./hardware-configuration.nix
       ./vm.nix
     ];
 
@@ -124,6 +119,7 @@ boot.loader = {
 
   # Enable Niri
   programs.niri.enable = true;
+
   # Enable the Hyprland Compositor
   programs.hyprland.enable = true;
   programs.hyprland.xwayland.enable = true;
@@ -151,18 +147,9 @@ boot.loader = {
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Define a user account. 
   users.users.bayse = {
     isNormalUser = true;
     description = "bayse";
@@ -197,8 +184,7 @@ boot.loader = {
   nixpkgs.config.allowUnfree = true;
 
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # System Packages 
   environment.systemPackages = with pkgs; [
     steam
     protonup
@@ -273,12 +259,14 @@ boot.loader = {
     fortune
     xwayland-satellite
     gpu-screen-recorder-gtk
+    nautilus
     ];
 
 
-    # Fonts
+    # Enable Default Fonts
     
     fonts.enableDefaultPackages = true;
+
     # Fonts Packages
 
     fonts.packages = with pkgs; [
@@ -308,25 +296,6 @@ boot.loader = {
   nixpkgs.config.permittedInsecurePackages = [
     "electron-33.4.11"
   ];
-  
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

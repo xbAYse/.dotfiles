@@ -56,11 +56,11 @@ input {
     }
 
     // Uncomment this to make the mouse warp to the center of newly focused windows.
-    // warp-mouse-to-focus
+    warp-mouse-to-focus
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    // focus-follows-mouse max-scroll-amount="0%"
+    focus-follows-mouse max-scroll-amount="0%"
 }
 
 // You can configure outputs by their name, which you can find
@@ -236,6 +236,39 @@ layout {
     }
 }
 
+workspace "one"{
+  open-on-output "DP-2"
+}
+
+window-rule {
+  match at-startup=true app-id="ghostty"
+  open-on-workspace "one"
+}
+
+workspace "two"{
+  open-on-output "DP-2"
+}
+workspace "three"{
+  open-on-output "DP-2"
+}
+workspace "four"{
+  open-on-output "DP-3"
+}
+workspace "five"{
+  open-on-output "DP-3"
+}
+workspace "six"{
+  open-on-output "DP-3"
+}
+workspace "seven"{
+  open-on-output "HDMI-A-1"
+}
+workspace "eight"{
+  open-on-output "HDMI-A-1"
+}
+workspace "nine"{
+  open-on-output "HDMI-A-1"
+}
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
@@ -317,6 +350,10 @@ window-rule {
     // block-out-from "screencast"
 }
 
+window-rule {
+  match app-id="waypaper"
+  open-floating true
+}
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
@@ -343,6 +380,10 @@ binds {
     Mod+R repeat=false { spawn "rofi" "-show" "drun" "-show-icons";}
     Mod+B repeat=false { spawn "flatpak" "run" "app.zen_browser.zen";}
     Mod+S repeat=false { spawn "ghostty" "-e" "spotify_player";}
+    Ctrl+Shift+Escape repeat=false { spawn "missioncenter";}
+
+    // bind grim + slurp + wl-copy
+    Mod+Shift+S repeat=false { spawn "~/scripts/screenshot.sh"; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
@@ -374,14 +415,14 @@ binds {
     Mod+K     { focus-window-up; }
     Mod+L     { focus-column-right; }
 
-    Mod+Ctrl+Left  { move-column-left; }
-    Mod+Ctrl+Down  { move-window-down; }
-    Mod+Ctrl+Up    { move-window-up; }
-    Mod+Ctrl+Right { move-column-right; }
-    Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+J     { move-window-down; }
-    Mod+Ctrl+K     { move-window-up; }
-    Mod+Ctrl+L     { move-column-right; }
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Down  { move-window-down; }
+    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+H     { move-column-left; }
+    Mod+Shift+J     { move-window-down; }
+    Mod+Shift+K     { move-window-up; }
+    Mod+Shift+L     { move-column-right; }
 
     // Alternative commands that move across workspaces when reaching
     // the first or last window in a column.
@@ -392,17 +433,17 @@ binds {
 
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
-    Mod+Ctrl+Home { move-column-to-first; }
-    Mod+Ctrl+End  { move-column-to-last; }
+    Mod+Shift+Home { move-column-to-first; }
+    Mod+Shift+End  { move-column-to-last; }
 
-    Mod+Shift+Left  { focus-monitor-left; }
-    Mod+Shift+Down  { focus-monitor-down; }
-    Mod+Shift+Up    { focus-monitor-up; }
-    Mod+Shift+Right { focus-monitor-right; }
-    Mod+Shift+H     { focus-monitor-left; }
-    Mod+Shift+J     { focus-monitor-down; }
-    Mod+Shift+K     { focus-monitor-up; }
-    Mod+Shift+L     { focus-monitor-right; }
+    Mod+Ctrl+Left  { focus-monitor-left; }
+    Mod+Ctrl+Down  { focus-monitor-down; }
+    Mod+Ctrl+Up    { focus-monitor-up; }
+    Mod+Ctrl+Right { focus-monitor-right; }
+    Mod+Ctrl+H     { focus-monitor-left; }
+    Mod+Ctrl+J     { focus-monitor-down; }
+    Mod+Ctrl+K     { focus-monitor-up; }
+    Mod+Ctrl+L     { focus-monitor-right; }
 
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
@@ -447,18 +488,18 @@ binds {
     // You can set a cooldown on any bind, but it's most useful for the wheel.
     Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
     Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
-    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
-    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+    Mod+Shift+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Shift+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
     Mod+WheelScrollRight      { focus-column-right; }
     Mod+WheelScrollLeft       { focus-column-left; }
-    Mod+Ctrl+WheelScrollRight { move-column-right; }
-    Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+    Mod+Shift+WheelScrollRight { move-column-right; }
+    Mod+Shift+WheelScrollLeft  { move-column-left; }
 
     // Usually scrolling up and down with Shift in applications results in
     // horizontal scrolling; these binds replicate that.
-    Mod+Shift+WheelScrollDown      { focus-column-right; }
-    Mod+Shift+WheelScrollUp        { focus-column-left; }
+    Mod+Ctrl+WheelScrollDown      { focus-column-right; }
+    Mod+Ctrl+WheelScrollUp        { focus-column-left; }
     Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
     Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
@@ -476,27 +517,26 @@ binds {
     // "best effort". Trying to refer to a workspace index bigger than
     // the current workspace count will instead refer to the bottommost
     // (empty) workspace.
-    //
     // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
     // will all refer to the 3rd workspace.
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
-    Mod+5 { focus-workspace 5; }
-    Mod+6 { focus-workspace 6; }
-    Mod+7 { focus-workspace 7; }
-    Mod+8 { focus-workspace 8; }
-    Mod+9 { focus-workspace 9; }
-    Mod+Shift+1 { move-column-to-workspace 1; }
-    Mod+Shift+2 { move-column-to-workspace 2; }
-    Mod+Shift+3 { move-column-to-workspace 3; }
-    Mod+Shift+4 { move-column-to-workspace 4; }
-    Mod+Shift+5 { move-column-to-workspace 5; }
-    Mod+Shift+6 { move-column-to-workspace 6; }
-    Mod+Shift+7 { move-column-to-workspace 7; }
-    Mod+Shift+8 { move-column-to-workspace 8; }
-    Mod+Shift+9 { move-column-to-workspace 9; }
+    Mod+1 { focus-workspace "one"; }
+    Mod+2 { focus-workspace "two"; }
+    Mod+3 { focus-workspace "three"; }
+    Mod+4 { focus-workspace "four"; }
+    Mod+5 { focus-workspace "five"; }
+    Mod+6 { focus-workspace "six"; }
+    Mod+7 { focus-workspace "seven"; }
+    Mod+8 { focus-workspace "eight"; }
+    Mod+9 { focus-workspace "nine"; }
+    Mod+Shift+1 { move-column-to-workspace "one"; }
+    Mod+Shift+2 { move-column-to-workspace "two"; }
+    Mod+Shift+3 { move-column-to-workspace "three"; }
+    Mod+Shift+4 { move-column-to-workspace "four"; }
+    Mod+Shift+5 { move-column-to-workspace "five"; }
+    Mod+Shift+6 { move-column-to-workspace "six"; }
+    Mod+Shift+7 { move-column-to-workspace "seven"; }
+    Mod+Shift+8 { move-column-to-workspace "eight"; }
+    Mod+Shift+9 { move-column-to-workspace "nine"; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
