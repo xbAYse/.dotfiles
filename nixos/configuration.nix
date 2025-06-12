@@ -183,8 +183,7 @@ boot.loader = {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-
-  # System Packages 
+  # 
   environment.systemPackages = with pkgs; [
     steam
     protonup
@@ -260,7 +259,7 @@ boot.loader = {
     xwayland-satellite
     gpu-screen-recorder-gtk
     nautilus
-    warp-terminal
+    eww
     ];
 
 
