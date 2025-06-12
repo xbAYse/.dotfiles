@@ -260,6 +260,7 @@ boot.loader = {
     xwayland-satellite
     gpu-screen-recorder-gtk
     nautilus
+    warp-terminal
     ];
 
 

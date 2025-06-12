@@ -278,6 +278,8 @@ workspace "nine"{
 spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "sww" "img" "~/Downloads/GruvBox/mountaingruvblur.png"
+spawn-at-startup "ghostty"
+spawn-at-startup "syncthing"
 
 // xwayland-satellite
 spawn-at-startup "xwayland-satellite"
@@ -380,7 +382,7 @@ binds {
     Mod+R repeat=false { spawn "rofi" "-show" "drun" "-show-icons";}
     Mod+B repeat=false { spawn "flatpak" "run" "app.zen_browser.zen";}
     Mod+S repeat=false { spawn "ghostty" "-e" "spotify_player";}
-    Ctrl+Shift+Escape repeat=false { spawn "missioncenter";}
+    Ctrl+Shift+Escape repeat=false { spawn "missioncenter"; }
 
     // bind grim + slurp + wl-copy
     Mod+Shift+S repeat=false { spawn "~/scripts/screenshot.sh"; }
