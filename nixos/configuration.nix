@@ -197,7 +197,7 @@ boot.loader = {
     waybar
     dunst #notifications
     libnotify #notifications
-    swww
+    swaybg
     ghostty
     fish
     vesktop
@@ -257,9 +257,11 @@ boot.loader = {
     github-desktop
     fortune
     xwayland-satellite
-    gpu-screen-recorder-gtk
+    gpu-screen-recorder
     nautilus
     eww
+    gnumake
+    oversteer
     ];
 
 

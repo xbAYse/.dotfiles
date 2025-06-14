@@ -22,18 +22,18 @@
  *    Colors 
  *-------------------------------------------------------------------------------*/
 
-@define-color background            #282828;
-@define-color hard_background       #404040;
-@define-color second_background     #45403D;
-@define-color foreground            #EBDBB2;
-@define-color selection_foreground  #D8A657;
-@define-color selection_background  #3c3836;
-@define-color color_blue            #7DAEA3;
-@define-color color_green           #A9B665;
+@define-color background            #161616;
+@define-color hard_background       #262626;
+@define-color second_background     #393939;
+@define-color foreground            #FFFFFF;
+@define-color selection_foreground  #08BDBA;
+@define-color selection_background  #525252;
+@define-color color_blue            #78A9FF;
+@define-color color_green           #42be65;
 @define-color color_yellow          #D8A657;
-@define-color color_red        	    #EA6962;
-@define-color color_purple          #d3869B;
-@define-color color_aqua            #89B482;
+@define-color color_red        	    #EE5396;
+@define-color color_purple          #FF7EB6;
+@define-color color_aqua            #33B1FF;
 @define-color color_grey            #7C6F64;
 @define-color color_white           #A89984;
 @define-color color_orange          #D65D0E;
@@ -128,15 +128,16 @@ tooltip {
     font-size: 15px;
     background-color: @background;
     padding-top: 1em;
+    padding-right: 2px;
     border-right-width: 2px;
     border-right-style: solid;
-    border-right-color: @selection_background;
+    border-right-color: @hard_background;
     border-left-width: 2px;
     border-left-style: solid;
-    border-left-color: @selection_background;
+    border-left-color: @hard_background;
     border-top-width: 3px;
     border-top-style: solid;
-    border-top-color: @selection_background;
+    border-top-color: @hard_background;
 
 }
 #window {

@@ -148,10 +148,10 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#262626"
+        active-color "#404040"
 
         // Color of the ring on inactive monitors.
-        inactive-color "#161616"
+        inactive-color "#282828"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -177,10 +177,10 @@ layout {
 
         width 2
         active-color "#78a9ff"
-        inactive-color "#161616"
+        inactive-color "#282828"
 
         // Color of the border around windows that request your attention.
-        urgent-color "#ee5396"
+        urgent-color "#9b0000"
 
         // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"

@@ -5,16 +5,16 @@
  */
 
 * {
-    bg0: rgba(40, 40, 40, 100 % );
-    bg1: #32302f;
-    grey0: #7c6f64;
-    fg0: #d4be98;
+    bg0: #161616;
+    bg1: #161616;
+    grey0: #ff7eb6;
+    fg0: #ffffff;
 
-    blue: #7daea3;
-    red: #ea6962;
-    orange: #e78a4e;
-    green: #a9b665;
-    bgStatusline3: #504945;
+    blue: #78a9ff;
+    red: #ee5396;
+    orange: #ff8eb6;
+    green: #42be65;
+    bgStatusline3: #ee5396;
 
     background-color: @bg0;
 }
@@ -24,7 +24,7 @@ window {
     width: 600;
 
     border: 1;
-    border-radius: 10;
+    border-radius: 0;
     border-color: @bgStatusline3;
 }
 
