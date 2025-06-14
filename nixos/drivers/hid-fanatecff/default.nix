@@ -1,6 +1,4 @@
-        ./printers.nix
-
-GitHub, kernel, kmod, linuxConsoleTools }:
+{ lib, stdenv, fetchFromGitHub, kernel, kmod, linuxConsoleTools }:
 
 let
     moduledir = "lib/modules/${kernel.modDirVersion}/kernel/drivers/hid";

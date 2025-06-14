@@ -176,15 +176,11 @@ boot.loader = {
   programs.neovim.enable = true;    
   programs.neovim.defaultEditor = true;
 
-services.udev.extraRules = let
-  # Define sh and coreutils (for chmod) from pkgs
-  shPath = "${pkgs.bash}/bin/sh"; # Or pkgs.coreutils/bin/sh
-  chmodPath = "${pkgs.coreutils}/bin/chmod"; # Need coreutils for chmod
-in
-  ''
+  # UDEV for Moza
+  services.udev.extraRules = ''
     SUBSYSTEM=="tty", KERNEL=="ttyACM*", ATTRS{idVendor}=="346e", ACTION=="add", MODE="0666", TAG+="uaccess"
     SUBSYSTEM=="misc", KERNEL=="uinput", OPTIONS+="static_node=uinput", TAG+="uaccess"
-  '';
+    '';
 
   hardware.enableRedistributableFirmware = true;
   # Install firefox.
