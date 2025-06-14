@@ -1,9 +1,10 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [      ./hardware-configuration.nix
+  imports = [      
+      ./hardware-configuration.nix
       ./vm.nix
+      ./drivers
     ];
 
   # Enable Flakes 
@@ -25,6 +26,11 @@
 
   # Newest Linux KERNEL
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # KernalModules
+  boot.kernelModules = [
+    "hid-fanatec"
+  ];
 
   # Enable Garbage Collection
   nix.gc = {
@@ -170,11 +176,17 @@ boot.loader = {
   programs.neovim.enable = true;    
   programs.neovim.defaultEditor = true;
 
-  # UDEV for Moza
-  services.udev.extraRules = ''
+services.udev.extraRules = let
+  # Define sh and coreutils (for chmod) from pkgs
+  shPath = "${pkgs.bash}/bin/sh"; # Or pkgs.coreutils/bin/sh
+  chmodPath = "${pkgs.coreutils}/bin/chmod"; # Need coreutils for chmod
+in
+  ''
     SUBSYSTEM=="tty", KERNEL=="ttyACM*", ATTRS{idVendor}=="346e", ACTION=="add", MODE="0666", TAG+="uaccess"
     SUBSYSTEM=="misc", KERNEL=="uinput", OPTIONS+="static_node=uinput", TAG+="uaccess"
-    '';
+  '';
+
+  hardware.enableRedistributableFirmware = true;
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -268,6 +280,8 @@ boot.loader = {
     syncthing
     boxflat
     oversteer
+    linuxConsoleTools
+    game-devices-udev-rules
     ];
 
 
