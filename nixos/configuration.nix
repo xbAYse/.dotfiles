@@ -23,6 +23,9 @@
   };
   services.xserver.videoDrivers = ["amdgpu"];
 
+  # Newest Linux KERNEL
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # Enable Garbage Collection
   nix.gc = {
       automatic = true;
@@ -111,7 +114,7 @@ boot.loader = {
   programs.fish.enable = true;
 
   # Enable Gnome
-  services.xserver = {
+  services = {
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
@@ -120,10 +123,6 @@ boot.loader = {
   # Enable Niri
   programs.niri.enable = true;
 
-  # Enable the Hyprland Compositor
-  programs.hyprland.enable = true;
-  programs.hyprland.xwayland.enable = true;
- 
   # Enable Thunar
   programs.thunar.enable = true;
   programs.thunar.plugins = with pkgs.xfce; [ thunar-archive-plugin thunar-volman ];
@@ -170,7 +169,12 @@ boot.loader = {
       };
   programs.neovim.enable = true;    
   programs.neovim.defaultEditor = true;
- 
+
+  # UDEV for Moza
+  services.udev.extraRules = ''
+    SUBSYSTEM=="tty", KERNEL=="ttyACM*", ATTRS{idVendor}=="346e", ACTION=="add", MODE="0666", TAG+="uaccess"
+    SUBSYSTEM=="misc", KERNEL=="uinput", OPTIONS+="static_node=uinput", TAG+="uaccess"
+    '';
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -261,6 +265,8 @@ boot.loader = {
     nautilus
     eww
     gnumake
+    syncthing
+    boxflat
     oversteer
     ];
 

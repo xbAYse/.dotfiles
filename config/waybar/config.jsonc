@@ -77,15 +77,15 @@
     "niri/workspaces": {
         "format": "{icon}",
         "format-icons": {
-            "one": "one",     //calculate :3
-            "two": "two",
-            "three": "three", 
-            "four": "four", 
-            "five": "five",
-	          "six": "six",
-	          "seven": "sev.",
-	          "eight": "eight",
-	          "nine": "nine",
+            "one": "一",     //calculate :3
+            "two": "二",
+            "three": "三", 
+            "four": "四", 
+            "five": "五",
+	          "six": "六",
+	          "seven": "七",
+	          "eight": "八",
+	          "nine": "九",
             "4" : " "
         },
         },
