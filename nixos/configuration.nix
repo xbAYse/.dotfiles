@@ -180,9 +180,11 @@ boot.loader = {
   services.udev.extraRules = ''
     SUBSYSTEM=="tty", KERNEL=="ttyACM*", ATTRS{idVendor}=="346e", ACTION=="add", MODE="0666", TAG+="uaccess"
     SUBSYSTEM=="misc", KERNEL=="uinput", OPTIONS+="static_node=uinput", TAG+="uaccess"
+    SUBSYSTEM=="usb", ATTR{idVendor}=="0eb7", ATTR{idProduct}=="6206", MODE="0666", GROUP="plugdev"
     '';
 
   hardware.enableRedistributableFirmware = true;
+  hardware.fanatec.enable = true;
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -194,9 +196,12 @@ boot.loader = {
   
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  # Allow nix-ld
+  programs.nix-ld.enable = true;
 
-  # 
+  #System Packages
   environment.systemPackages = with pkgs; [
+    (pkgs.callPackage ./protopedal.nix { })
     steam
     protonup
     protontricks
