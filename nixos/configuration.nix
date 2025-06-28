@@ -257,7 +257,6 @@ boot.loader = {
     element-desktop
     komikku #manga reader
     android-tools
-    qutebrowser
     anki
     btop
     luarocks
@@ -276,13 +275,16 @@ boot.loader = {
     xwayland-satellite
     gpu-screen-recorder
     nautilus
-    eww
+    quickshell
     gnumake
     syncthing
     boxflat
     oversteer
     linuxConsoleTools
     game-devices-udev-rules
+    r2modman
+    phinger-cursors
+    lutgen
     ];
 
 

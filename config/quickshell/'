@@ -1,0 +1,67 @@
+import Quickshell
+import Quickshell.Io
+import QtQuick
+import "root:"
+import "root:services"
+
+Scope {
+  id: root
+  property string hour: "%I"
+  property string minute: "mm" 
+  property string pm: "ap"
+
+  Variants {
+    model: Quickshell.screens
+
+    PanelWindow {
+      property var modelData
+      screen: modelData
+      
+      color: "transparent"
+
+      anchors {
+        left: true
+        top: true
+        bottom: true
+      }
+      margins {
+        left: 5
+        right: 5
+        top: 5
+        bottom:5
+      }
+      implicitWidth: 40
+      Rectangle {
+        id: inner
+        anchors.centerIn: parent
+        height: parent.height
+        width: parent.width
+        color: "#161616"
+        border.color :"#262626"
+        border.width : 2
+      }
+      Text {
+        anchors.centerIn: parent
+        text: Time.format(hour)
+        color: "#ffffff"
+      }
+    }
+  }
+
+  Process {
+    id: dateProc
+    command: ["date"]
+    running: true
+
+    stdout: StdioCollector {
+      onStreamFinished: root.time = this.text
+    }
+  }
+
+  Timer {
+    interval: 1000
+    running: true
+    repeat: true
+    onTriggered: dateProc.running = true
+  }
+}

@@ -240,11 +240,6 @@ workspace "one"{
   open-on-output "DP-2"
 }
 
-window-rule {
-  match at-startup=true app-id="ghostty"
-  open-on-workspace "one"
-}
-
 workspace "two"{
   open-on-output "DP-2"
 }
@@ -277,7 +272,6 @@ workspace "nine"{
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
-spawn-at-startup "sww" "img" "~/Downloads/GruvBox/mountaingruvblur.png"
 spawn-at-startup "ghostty"
 spawn-at-startup "syncthing"
 
